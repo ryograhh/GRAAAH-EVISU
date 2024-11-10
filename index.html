@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAAAH Evisu Squad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .swiper {
+            width: 100%;
+            height: 300px;
+        }
+        .hero-parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {"50":"#faf5ff","100":"#f3e8ff","200":"#e9d5ff","300":"#d8b4fe","400":"#c084fc","500":"#a855f7","600":"#9333ea","700":"#7e22ce","800":"#6b21a8","900":"#581c87","950":"#3b0764"}
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white min-h-screen flex flex-col">
+    <nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-primary-600 dark:text-primary-400">GRAAAH Evisu</h1>
+                <button id="mobileMenuBtn" class="md:hidden">
+                    <i data-lucide="menu"></i>
+                </button>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#home" class="hover:text-primary-500 transition-colors duration-300">Home</a>
+                    <a href="#requirements" class="hover:text-primary-500 transition-colors duration-300">Requirements</a>
+                    <a href="#rules" class="hover:text-primary-500 transition-colors duration-300">Rules</a>
+                    <a href="#stats" class="hover:text-primary-500 transition-colors duration-300">Stats</a>
+                    <button id="themeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+                        <i data-lucide="sun" class="hidden dark:block"></i>
+                        <i data-lucide="moon" class="block dark:hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden">
+            <a href="#home" class="block py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+            <a href="#requirements" class="block py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-700">Requirements</a>
+            <a href="#rules" class="block py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-700">Rules</a>
+            <a href="#stats" class="block py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-700">Stats</a>
+        </div>
+    </nav>
+
+    <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden hero-parallax" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div class="text-center px-4">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4" data-aos="fade-up">Welcome to GRAAAH Evisu Squad</h1>
+                <p class="text-xl text-white mb-8" data-aos="fade-up" data-aos-delay="200">Join the elite. Dominate the battlefield.</p>
+                <button id="learnMoreBtn" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105" data-aos="fade-up" data-aos-delay="400">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <section id="requirements" class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-semibold mb-6 text-primary-600 dark:text-primary-400">Squad Requirements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-500 hover:scale-105" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="500">
+                    <i data-lucide="trophy" class="w-12 h-12 text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Good Stats</h3>
+                    <p>Demonstrate exceptional performance in your matches.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-500 hover:scale-105" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="500">
+                    <i data-lucide="percent" class="w-12 h-12 text-green-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Win Rate: 80-90%</h3>
+                    <p>Maintain a high win rate to prove your skills.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-500 hover:scale-105" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="500">
+                    <i data-lucide="star" class="w-12 h-12 text-purple-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Rank: Mythical Immortal 200+ stars</h3>
+                    <p>Reach the pinnacle of MLBB rankings.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="rules" class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-semibold mb-6 text-primary-600 dark:text-primary-400">Squad Rules</h2>
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
+                <ul class="space-y-4">
+                    <li class="flex items-center bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                        <i data-lucide="x-circle" class="mr-3 text-red-400"></i>
+                        <span>No toxic behavior or language</span>
+                    </li>
+                    <li class="flex items-center bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                        <i data-lucide="users" class="mr-3 text-blue-400"></i>
+                        <span>Respect all squad members and admins</span>
+                    </li>
+                    <li class="flex items-center bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                        <i data-lucide="clock" class="mr-3 text-yellow-400"></i>
+                        <span>Participate in squad activities regularly</span>
+                    </li>
+                    <li class="flex items-center bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                        <i data-lucide="headphones" class="mr-3 text-green-400"></i>
+                        <span>Use voice chat during team matches</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="stats" class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-semibold mb-6 text-primary-600 dark:text-primary-400">Squad Stats</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-xl font-semibold mb-4">Performance Overview</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-xl font-semibold mb-4">Top Players</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                            <span class="font-semibold">1. ProGamer123</span>
+                            <span class="text-primary-600 dark:text-primary-400">Win Rate: 92%</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                            <span class="font-semibold">2. MLBBMaster</span>
+                            <span class="text-primary-600 dark:text-primary-400">Win Rate: 89%</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                            <span class="font-semibold">3. LegendaryPlayer</span>
+                            <span class="text-primary-600 dark:text-primary-400">Win Rate: 87%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-semibold mb-6 text-primary-600 dark:text-primary-400">Featured Heroes</h2>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 flex flex-col items-center">
+                        <img src="https://placeholder.com/150" alt="Hero 1" class="w-32 h-32 rounded-full mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Miya</h3>
+                        <p class="text-center">Marksman extraordinaire, perfect for long-range combat.</p>
+                    </div>
+                    <div class="swiper-slide bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 flex flex-col items-center">
+                        <img src="https://placeholder.com/150" alt="Hero 2" class="w-32 h-32 rounded-full mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Tigreal</h3>
+                        <p class="text-center">Tank hero with powerful crowd control abilities.</p>
+                    </div>
+                    <div class="swiper-slide bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 flex flex-col items-center">
+                        <img src="https://placeholder.com/150" alt="Hero 3" class="w-32 h-32 rounded-full mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Cyclops</h3>
+                        <p class="text-center">Mage with high burst damage and mobility.</p>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <section class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-semibold mb-6 text-primary-600 dark:text-primary-400">Upcoming Events</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-xl font-semibold mb-2">Squad Tournament</h3>
+                    <p class="mb-2">Date: July 15, 2023</p>
+                    <p>Join our internal squad tournament and prove your skills!</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-xl font-semibold mb-2">Training Session</h3>
+                    <p class="mb-2">Date: July 22, 2023</p>
+                    <p>Improve your gameplay with our expert coaches.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+                    <h3 class="text-xl font-semibold mb-2">Community Match</h3>
+                    <p class="mb-2">Date: July 29, 2023</p>
+                    <p>Play with and against other squads in friendly matches.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="flex flex-col space-y-4">
+            <button id="joinBtn" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center">
+                <i data-lucide="user-plus" class="mr-2"></i>
+                Join With Us
+            </button>
+            
+            <a href="https://www.facebook.com/bakitmokinopycrushmokonoh?mibextid=ZbWKwL" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center">
+                <i data-lucide="message-circle" class="mr-2"></i>
+                Chat With Us
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 GRAAAH Evisu Squad. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="#" class="hover:text-primary-400 transition-colors duration-300">
+                    <i data-lucide="facebook"></i>
+                </a>
+                <a href="#" class="hover:text-primary-400 transition-colors duration-300">
+                    <i data-lucide="instagram"></i>
+                </a>
+                <a href="#" class="hover:text-primary-400 transition-colors duration-300">
+                    <i data-lucide="twitter"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Modal -->
+    <div id="joinModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg max-w-md w-full mx-4">
+            <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">Join GRAAAH Evisu Squad</h2>
+            <form id="joinForm">
+                <div class="mb-4">
+                    <label for="name" class="block mb-2">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block mb-2">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600">
+                </div>
+                <div class="mb-4">
+                    <label for="rank" class="block mb-2">Current Rank</label>
+                    <input type="text" id="rank" name="rank" required class="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600">
+                </div>
+                <div class="mb-4">
+                    <label for="winrate" class="block mb-2">Win Rate</label>
+                    <input type="number" id="winrate" name="winrate" min="0" max="100" required class="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600">
+                </div>
+                <div class="flex justify-end">
+                    <button type="button" id="closeModal" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full mr-2">
+                        Close
+                    </button>
+                    <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded-full">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Join modal
+        const joinBtn = document.getElementById('joinBtn');
+        const joinModal = document.getElementById('joinModal');
+        const closeModal = document.getElementById('closeModal');
+        const joinForm = document.getElementById('joinForm');
+
+        joinBtn.addEventListener('click', () => {
+            joinModal.classList.remove('hidden');
+        });
+
+        closeModal.addEventListener('click', () => {
+            joinModal.classList.add('hidden');
+        });
+
+        joinForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would typically send the form data to your server
+            alert('Thank you for your interest! We will review your application and get back to you soon.');
+            joinModal.classList.add('hidden');
+        });
+
+        // Close modal when clicking outside
+        joinModal.addEventListener('click', (e) => {
+            if (e.target === joinModal) {
+                joinModal.classList.add('hidden');
+            }
+        });
+
+        // Initialize Swiper
+        new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+
+        // Initialize Chart.js
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Win Rate',
+                    data: [65, 70, 75, 80, 85, 90],
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Learn More button scroll
+        document.getElementById('learnMoreBtn').addEventListener('click', () => {
+            document.getElementById('requirements').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Initialize VanillaTilt
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+        });
+    </script>
+</body>
+</html>
